@@ -1,0 +1,719 @@
+:root {
+  --bg: #100d10;
+  --panel: #1b1519;
+  --text: #f5eee9;
+  --muted: #b8aaa8;
+  --red: #a72c3d;
+  --gold: #c59a61;
+  --line: rgba(255, 255, 255, 0.13);
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "DM Sans", Arial, sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+.site-header {
+  height: 78px;
+  padding: 0 5.5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(10, 8, 10, 0.76), transparent);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font: 700 24px var(--serif);
+  white-space: nowrap;
+}
+.brand em {
+  display: block;
+  color: #d35a69;
+  font-size: 19px;
+  line-height: 0.8;
+}
+.brand-mark {
+  font: 600 34px var(--serif);
+  color: #d7b47b;
+  border: 1px solid #9b7046;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+}
+.nav-links {
+  display: flex;
+  gap: 30px;
+  color: #d5ccca;
+  font-size: 13px;
+}
+.nav-links a:hover,
+.nav-links .active {
+  color: #fff;
+}
+.status {
+  font-size: 12px;
+  color: #d9ded3;
+}
+.status i {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background: #70c77a;
+  border-radius: 50%;
+  margin-right: 7px;
+}
+.menu-toggle {
+  display: none;
+  background: none;
+  color: white;
+  border: 0;
+  font-size: 24px;
+}
+.hero {
+  min-height: 650px;
+  height: 84vh;
+  max-height: 850px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(17, 8, 13, 0.48), rgba(14, 12, 14, 0.65)),
+    url("../images/hero-bg/hero-bg.jpg") center/cover no-repeat,
+    radial-gradient(ellipse at 18% 40%, #54202b, #120d12 48%, #4b3929);
+}
+.hero:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    var(--bg),
+    transparent 24%,
+    transparent 75%,
+    rgba(0, 0, 0, 0.3)
+  );
+  pointer-events: none;
+}
+.hero-content {
+  position: center;
+  z-index: 1;
+  text-align: center;
+  padding: 100px 20px 50px;
+  max-width: 900px;
+}
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: #d6b78f;
+  margin: 0 0 15px;
+}
+.hero h1 {
+  font: 600 clamp(58px, 9vw, 112px)/0.9 var(--serif);
+  margin: 0;
+  letter-spacing: -2px;
+}
+.hero h1 em {
+  font-weight: 500;
+  color: #d65b6b;
+}
+.hero-subtitle {
+  font: italic 20px var(--serif);
+  color: #ddd0ca;
+  letter-spacing: 1px;
+  margin: 25px 0 35px;
+}
+.text-link {
+  display: inline-block;
+  border-bottom: 1px solid #b98d73;
+  padding: 0 0 9px;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.text-link span {
+  color: #e37a82;
+  margin-left: 12px;
+}
+.hero-bottom {
+  position: absolute;
+  bottom: 26px;
+  left: 5.5%;
+  right: 5.5%;
+  display: flex;
+  justify-content: space-between;
+  color: #a99a96;
+  font-size: 9px;
+  letter-spacing: 2px;
+  z-index: 1;
+}
+.section-wrap {
+  width: min(1160px, 89%);
+  margin: auto;
+}
+.games-section {
+  padding: 82px 0 95px;
+}
+.section-heading {
+  text-align: center;
+  margin-bottom: 35px;
+}
+.section-heading h2,
+.how-section h2,
+.catalog-top h2 {
+  font: 600 42px var(--serif);
+  margin: 0 0 8px;
+}
+.section-heading h2 em,
+.how-section h2 em,
+.catalog-top h2 em {
+  color: #d16a72;
+}
+.section-heading > p:last-child,
+.muted {
+  color: var(--muted);
+  font-size: 13px;
+}
+.game-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+.game-card {
+  min-height: 310px;
+  border-radius: 13px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: end;
+  border: 1px solid rgba(255, 255, 255, 0.17);
+  background-position: center;
+  background-size: cover;
+  transition:
+    transform 0.3s,
+    border-color 0.3s;
+}
+.game-card:hover {
+  transform: translateY(-5px);
+  border-color: #c8797d;
+}
+.vampir-card {
+  background-image:
+    linear-gradient(90deg, rgba(25, 7, 13, 0.88), rgba(25, 7, 13, 0.12)),
+    url("../images/vampir/background/vampir-bg.jpg"),
+    radial-gradient(circle at 80% 20%, #702c39, #1b1016);
+}
+.lordnine-card {
+  background-image:
+    linear-gradient(90deg, rgba(25, 19, 13, 0.85), rgba(25, 19, 13, 0.12)),
+    url("../images/lordnine/background/lordnine-bg.jpg"),
+    radial-gradient(circle at 80% 20%, #987044, #1c1712);
+}
+.game-card-content {
+  position: relative;
+  padding: 34px;
+  max-width: 390px;
+}
+.game-kicker {
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #d6b78f;
+}
+.game-card h3 {
+  font: 600 58px/0.95 var(--serif);
+  margin: 12px 0;
+}
+.game-card p {
+  font: 17px var(--serif);
+  color: #e0d5d1;
+  max-width: 290px;
+}
+.outline-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 30px;
+  padding: 11px 18px;
+  margin-top: 12px;
+  font-size: 12px;
+}
+.outline-button b {
+  font-size: 17px;
+}
+.how-section {
+  background: #171216;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 55px 0;
+}
+.how-inner {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: 50px;
+  align-items: center;
+}
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.step {
+  display: flex;
+  gap: 12px;
+  color: #c9bfbc;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.step b {
+  font: 600 27px var(--serif);
+  color: #d36a75;
+}
+footer {
+  padding: 35px 5.5% 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+  color: var(--muted);
+  font-size: 12px;
+}
+footer small {
+  width: 100%;
+  text-align: center;
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+}
+.footer-brand {
+  color: var(--text);
+}
+.footer-contact {
+  color: #e1b47c;
+}
+.catalog-page {
+  background: var(--bg);
+}
+.catalog-hero {
+  min-height: 330px;
+  padding: 145px 20px 55px;
+  text-align: center;
+  background:
+    linear-gradient(90deg, rgba(17, 8, 13, 0.78), rgba(14, 12, 14, 0.6)),
+    url("../images/hero-bg/hero-bg.jpg") center/cover no-repeat,
+    linear-gradient(120deg, #32131d, #181216);
+}
+.lordnine-theme .catalog-hero {
+  background:
+    linear-gradient(90deg, rgba(17, 13, 9, 0.75), rgba(14, 12, 14, 0.6)),
+    url("../images/lordnine/lordnine-bg.jpg") center/cover no-repeat,
+    #38291a;
+}
+.catalog-hero h1 {
+  font: 600 clamp(48px, 7vw, 76px)/1 var(--serif);
+  margin: 0 0 12px;
+}
+.catalog-hero h1 em {
+  color: #d66b75;
+}
+.lordnine-theme .catalog-hero h1 em {
+  color: #d7b17a;
+}
+.catalog-hero > p:last-child {
+  color: #d0c5c1;
+  font: 17px var(--serif);
+}
+.catalog-wrap {
+  padding: 65px 0 90px;
+}
+.catalog-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+.catalog-top h2 {
+  font-size: 38px;
+}
+.back-link {
+  font-size: 12px;
+  color: #d9b58d;
+}
+.filters {
+  display: grid;
+  grid-template-columns: 1fr 190px 190px;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+.filters input,
+.filters select {
+  background: #211a1e;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  color: var(--text);
+  padding: 13px 14px;
+  font: 13px var(--sans);
+  outline: none;
+}
+.filters input:focus,
+.filters select:focus {
+  border-color: #b66b71;
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.product-card {
+  background: #1b1519;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: 0.25s;
+}
+.product-card:hover {
+  transform: translateY(-4px);
+  border-color: #93636a;
+}
+.product-image {
+  height: 190px;
+  width: 80%;
+  border: 0;
+  position: relative;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle, #493039, #20171d 70%);
+  color: #9e8c8b;
+  cursor: pointer;
+  overflow: hidden;
+}
+.lordnine-theme .product-image {
+  background: radial-gradient(circle, #57432d, #211b16 70%);
+}
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+}
+.image-placeholder {
+  font: 600 12px var(--serif);
+  letter-spacing: 4px;
+  opacity: 0.6;
+}
+.rarity-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 6px 9px;
+  border-radius: 20px;
+  background: #3c3437;
+  font-size: 10px;
+}
+.rarity-tag.legendary {
+  background: #755124;
+  color: #ffe0a6;
+}
+.rarity-tag.epic {
+  background: #573a70;
+  color: #ead4ff;
+}
+.rarity-tag.rare {
+  background: #28536a;
+  color: #d4f0ff;
+}
+.product-info {
+  padding: 17px;
+}
+.product-meta {
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  color: #b89a85;
+}
+.product-info h3 {
+  font: 600 25px var(--serif);
+  margin: 7px 0 14px;
+}
+.product-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.product-bottom strong {
+  font-size: 14px;
+  color: #e6c18d;
+}
+.small-button {
+  border: 1px solid #86616a;
+  color: #f3e9e7;
+  background: transparent;
+  border-radius: 20px;
+  padding: 7px 13px;
+  cursor: pointer;
+}
+.stock {
+  font-size: 10px;
+  margin: 12px 0 0;
+}
+.available {
+  color: #8bd49a;
+}
+.sold {
+  color: #e18b8b;
+}
+.empty-state {
+  color: var(--muted);
+  padding: 30px 0;
+}
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.modal.open {
+  display: flex;
+}
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+}
+.modal-box {
+  position: relative;
+  background: #21191e;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 28px;
+  width: min(460px, 100%);
+  z-index: 1;
+}
+.modal-close {
+  position: absolute;
+  right: 14px;
+  top: 8px;
+  background: none;
+  border: 0;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+}
+.detail-image {
+  height: 180px;
+  background: #30232a;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.detail-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.modal-box h2 {
+  font: 600 34px var(--serif);
+  margin: 5px 0;
+}
+.detail-description {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+.detail-price {
+  font-size: 19px;
+  color: #e6c18d;
+  font-weight: 700;
+}
+.buy-button {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 18px;
+  background: #8d3445;
+  color: white;
+  border-radius: 6px;
+  font-size: 13px;
+}
+.buy-button.disabled {
+  background: #55484b;
+  color: #b9abad;
+}
+.lordnine-theme .buy-button {
+  background: #8b6638;
+}
+.lordnine-theme .catalog-hero h1 em {
+  color: #d7b17a;
+}
+.lordnine-theme .product-bottom strong {
+  color: #e6c18d;
+}
+@media (max-width: 760px) {
+  .site-header {
+    height: 68px;
+    padding: 0 5%;
+    gap: 12px;
+  }
+  .brand {
+    font-size: 20px;
+  }
+  .brand-mark {
+    width: 36px;
+    height: 36px;
+    font-size: 29px;
+  }
+  .status {
+    display: none;
+  }
+  .menu-toggle {
+    display: block;
+    margin-left: auto;
+  }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 68px;
+    left: 0;
+    right: 0;
+    background: #171116;
+    padding: 18px 6%;
+    flex-direction: column;
+    gap: 18px;
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-links.show {
+    display: flex;
+  }
+  .hero {
+    min-height: 590px;
+    height: 78vh;
+  }
+  .hero h1 {
+    font-size: clamp(54px, 15vw, 82px);
+  }
+  .hero-subtitle {
+    font-size: 17px;
+  }
+  .hero-bottom {
+    font-size: 8px;
+  }
+  .games-section {
+    padding: 60px 0;
+  }
+  .game-grid {
+    grid-template-columns: 1fr;
+  }
+  .game-card {
+    min-height: 270px;
+  }
+  .game-card-content {
+    padding: 26px;
+  }
+  .how-inner {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  .catalog-hero {
+    min-height: 290px;
+    padding-top: 125px;
+  }
+  .catalog-wrap {
+    padding-top: 45px;
+  }
+  .catalog-top {
+    align-items: start;
+    flex-direction: column;
+  }
+  .filters {
+    grid-template-columns: 1fr;
+  }
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .product-image {
+    height: 145px;
+  }
+  .product-info {
+    padding: 12px;
+  }
+  .product-info h3 {
+    font-size: 21px;
+  }
+  .product-bottom {
+    align-items: start;
+    flex-direction: column;
+  }
+  .small-button {
+    width: 100%;
+  }
+  footer {
+    justify-content: center;
+    text-align: center;
+  }
+  footer small {
+    margin-top: 8px;
+  }
+}
+@media (max-width: 390px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+  .product-image {
+    height: 190px;
+  }
+  .hero-bottom span:last-child {
+    display: none;
+  }
+}
+/* Kategori koleksi Vampir */
+.group-heading {
+  grid-column: 1/-1;
+  margin: 24px 0 2px;
+  padding: 12px 0 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  font-family: inherit;
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent, #d6b36a);
+}
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+}

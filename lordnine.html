@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Katalog Lordnine | WellFams Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="catalog-page lordnine-theme">
+<header class="site-header">
+  <a class="brand" href="index.html"><span class="brand-mark">W</span><span>WellFams <em>Store</em></span></a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Buka navigasi">☰</button>
+  <nav class="nav-links" id="navLinks"><a href="index.html">Beranda</a><a class="active" href="lordnine.html">Lordnine</a><a href="vampir.html">Vampir</a></nav>
+  <span class="status"><i></i> Online</span>
+</header>
+<main>
+  <section class="catalog-hero"><p class="eyebrow">WELLFAMS STORE PRESENTS</p><h1>Lordnine <em>Collection</em></h1><p>Temukan senjata pilihan untuk petualanganmu.</p></section>
+  <section class="section-wrap catalog-wrap">
+    <div class="catalog-top"><div><p class="eyebrow">KATALOG PRODUK</p><h2>Senjata <em>Lordnine</em></h2><p id="resultCount" class="muted"></p></div><a class="back-link" href="index.html">← Kembali ke beranda</a></div>
+    <div class="filters">
+      <input id="searchInput" type="search" placeholder="Cari nama senjata..." aria-label="Cari senjata">
+      <select id="rarityFilter" aria-label="Filter rarity"><option value="">Semua rarity</option><option>Epic</option><option>Legendary</option></select>
+      <select id="sortFilter" aria-label="Urutkan harga"><option value="default">Urutan default</option><option value="low">Harga termurah</option><option value="high">Harga termahal</option></select>
+    </div>
+    <div class="product-grid" id="productGrid"></div><p class="empty-state" id="emptyState" hidden>Produk tidak ditemukan. Coba kata kunci atau filter lain.</p>
+  </section>
+</main>
+<footer><a class="brand footer-brand" href="index.html"><span class="brand-mark">W</span><span>WellFams <em>Store</em></span></a><p>Trusted store for your game needs.</p><small>© <span class="year"></span> WellFams Store.</small></footer>
+<div class="modal" id="productModal" aria-hidden="true"><div class="modal-backdrop" data-close></div><div class="modal-box"><button class="modal-close" data-close aria-label="Tutup">×</button><div id="modalContent"></div></div></div>
+<script src="assets/js/lordnine-data.js"></script><script src="assets/js/catalog.js"></script><script src="assets/js/main.js"></script>
+</body></html>
